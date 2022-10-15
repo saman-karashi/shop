@@ -1,0 +1,16 @@
+
+@mixin flex($justify-content,$alignItems,$direction){
+display: flex;
+flex-direction: $direction;
+align-items: $alignItems;
+justify-content: $justify-content;
+}
+
+
+
+@mixin responsive($breakpoint){
+    @media screen and (max-width:breakpoints_handler($breakpoint)){
+        @content;
+    }
+   
+}

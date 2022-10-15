@@ -1,0 +1,49 @@
+@import './base/reset';
+@import './scss-utils/variables';
+@import './base/typography';
+@import './mixins/mixins';
+@import './functions/functions';
+@import './layout/navigation';
+
+body{
+font-family: 'Lato' , sans-serif;
+overflow-x: hidden;
+min-height: 100vh;
+}
+
+.container{
+max-width: 75rem;
+margin: 0 auto;
+}
+
+.btn{
+cursor: pointer;
+background-color: transparent;
+border: none;
+}
+
+.show{
+top:70px;
+}
+
+.hidden{
+top: -50%;
+}
+
+.overlay{
+height: 100%;
+background-color: rgba(0, 0, 0, 0.1);
+width: 100%;
+z-index: 100;
+top: 71px;
+right: 0;
+display: none;
+position: fixed;
+}
+
+
+@include responsive(md){
+    .overlay{
+    display: block;
+    }
+}

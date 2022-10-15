@@ -1,0 +1,26 @@
+
+// Font weights
+@function font_weights_handler($weight){
+    @return map-get($font-weights, $weight )
+};
+
+
+//Colors
+@function colors_handler($color){
+    @return map-get($colors, $color ) 
+};
+
+//Font sizes
+@function font_sizes_handler($size){
+    @return map-get($font-sizes, $size ) 
+};
+
+//Transitions
+@function transitions_handler($duration){
+    @return map-get($transitions_duration, $duration ) 
+};
+
+//Dimensions
+@function breakpoints_handler($breakpoint){
+    @return map-get($breakpoints, $breakpoint )
+}
