@@ -1,17 +1,18 @@
 import { NextPage } from 'next'
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
+import Loading from '../loading/Loading';
 import Navbar from '../navbar/Navbar'
 
 type Props = {
-children:ReactNode
+children:ReactElement
 }
 
 const Layout:NextPage<Props> = ({children}) => {
-
   return (
     <>
-    <Navbar/>
+    <Navbar />
     <main className="container">
+    {/* <Loading /> */}
         {children}
     </main>
     </>

@@ -1,14 +1,22 @@
 @import './base/reset';
 @import './scss-utils/variables';
+@import './scss-utils/utilities';
 @import './base/typography';
 @import './mixins/mixins';
 @import './functions/functions';
+@import './components/card';
 @import './layout/navigation';
 
 body{
 font-family: 'Lato' , sans-serif;
 overflow-x: hidden;
 min-height: 100vh;
+}
+
+img{
+object-fit: cover;
+max-width: 100%;
+height: auto;
 }
 
 .container{
@@ -30,6 +38,11 @@ top:70px;
 top: -50%;
 }
 
+.grid{
+@include grid(4,flex-start,space-between);
+}
+
+
 .overlay{
 height: 100%;
 background-color: rgba(0, 0, 0, 0.1);
@@ -42,8 +55,24 @@ position: fixed;
 }
 
 
+@include responsive(lg){
+    .grid{
+    @include grid(3,flex-start,space-between)
+    }
+}
+
 @include responsive(md){
     .overlay{
     display: block;
+    }
+
+    .grid{
+    @include grid(2,flex-start,space-between)
+    }
+}
+
+@include responsive(sm){
+    .grid{
+    grid-template-columns: 1fr;
     }
 }

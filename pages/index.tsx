@@ -1,5 +1,6 @@
 import type { NextPage ,GetStaticProps} from 'next'
 import Head from 'next/head'
+import Products from '../components/products/Products'
 
 
 const Home:NextPage = ()=>{
@@ -8,6 +9,7 @@ const Home:NextPage = ()=>{
       <Head>
         <title>Home</title>
       </Head>
+      <Products />
     </>
   )
 }

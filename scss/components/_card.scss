@@ -1,0 +1,43 @@
+
+.card{
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid colors_handler(gray-400);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .card_content{
+            .card_title{
+                .title{
+                    font-size:font_sizes_handler(md);
+                    max-width:250px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+
+            .card_description{
+                .card_price{
+                    font-size:font_sizes_handler(sm);
+                    color: colors_handler(gray-800);
+                    font-weight: font_weights_handler(bold);
+                }
+
+                .card_expense_wrapper{
+                    @include flex(space-between,center,row);
+                    .card_expense{
+                        font-weight: font_weights_handler(bold);
+                        font-size: font_sizes_handler(md);
+                    }
+
+                    .card_buy_btn{
+                    border: none;
+                    background-color: colors_handler(blue-300);
+                    padding:.5rem .75rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    }
+                }
+            }
+        }
+}

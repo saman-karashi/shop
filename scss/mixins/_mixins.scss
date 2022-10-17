@@ -7,6 +7,14 @@ justify-content: $justify-content;
 }
 
 
+@mixin grid($num_cols,$alignItems,$justifyContent){
+display: grid;
+grid-template-columns:repeat($num_cols , 1fr);
+grid-gap:1rem;
+align-items:$alignItems;
+justify-content:$justifyContent;
+}
+
 
 @mixin responsive($breakpoint){
     @media screen and (max-width:breakpoints_handler($breakpoint)){

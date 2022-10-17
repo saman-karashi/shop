@@ -1,0 +1,22 @@
+
+
+@for $i from 1 through 5{
+    .mr_#{$i}{
+        margin-right: #{$i}rem;
+    }
+
+    .mt_#{$i}{
+        margin-top: #{$i}rem;
+    }
+
+    .px_#{$i}{
+        padding-left:#{$i}rem;
+        padding-right:#{$i}rem;
+    }
+
+    .py_#{$i}{
+        padding-top: #{$i}rem;
+        padding-bottom: #{$i}rem;
+    }
+
+}
