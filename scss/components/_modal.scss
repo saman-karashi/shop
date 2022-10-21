@@ -1,0 +1,90 @@
+
+.modal{
+    overflow-y: auto;
+    z-index: 1000;
+    position: fixed;
+    inset:25% calc(50% - 15rem);
+    min-width: 15rem;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 20rem;
+    background-color:#fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+
+        .notify_text_modal{
+        text-align: center;
+        font-size: font_sizes_handler(lg);
+        font-weight: font_weights_handler(bold);
+        }
+        .modal_header{
+            text-align: right;
+        }
+
+        .modal_body{
+            @include flex(space-between,center,row);
+            position: relative;
+    
+            &::after{
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: colors_handler(gray-400);
+                content: '';
+                bottom: -8px;
+            }
+    
+            div{
+                .modal_title{
+                    font-weight: font_weights_handler(bold);
+                    font-size:font_sizes_handler(md);
+                }
+    
+                .modal_price{
+                    font-weight: font_weights_handler(bold);
+                    font-size:font_sizes_handler(sm);
+                    color:colors_handler(gray-800);
+                    margin-top: .3rem;
+                }
+
+                @include responsive(sm){
+                    .modal_title{
+                        font-size:font_sizes_handler(sm);
+                    }
+                }
+            }
+    
+            .card_add{
+                @include flex(center,center,row);
+                .decrement_btn,
+                .increment_btn{
+                    padding:.4rem .5rem;
+                }
+    
+                .decrement_btn{
+                    color: colors_handler(red-400);
+                }
+    
+                .increment_btn{
+                    color: colors_handler(green-600);
+                }
+    
+                .modal_quantity{
+                    font-weight: font_weights_handler(bold);
+                    font-size:font_sizes_handler(md);
+                }
+            }
+        }
+
+        .modal_total_expenses{
+           .modal_expense{
+            @include flex(space-between,center,row);
+                .total,
+                .total_text{
+                    font-weight: font_weights_handler(bold);
+                    font-size: font_sizes_handler(md);
+                }
+           } 
+        }
+       
+}

@@ -6,13 +6,16 @@ import { Hamburger , Times } from "../../icons/Icons";
 import { MyContext } from "../../store/Context";
 
 const Navbar:NextPage = () => {
-const [isActive,setIsActive] = useState(false);
-const {quantity} = useContext(MyContext);
+const [menuIsActive,setMenuIsActive] = useState<boolean>(false);
+const {
+displayModalHandler,
+choosedProducts
+} = useContext(MyContext);
 
   return (
     <header className="nav_header">
         <div className="container nav_wrapper">
-            <nav className={`nav ${isActive ? 'show' : 'hidden'}`}>
+            <nav className={`nav ${menuIsActive ? 'show' : 'hidden'}`}>
                 <ul className="nav_ul">
                     <li>
                         <Link href={'/'}>
@@ -36,8 +39,8 @@ const {quantity} = useContext(MyContext);
                         </Link>
                     </li>
                 </ul>
-                <div className="nav_shopping_cart">
-                    <div className="nav_items_quantity">{quantity}</div>
+                <div className="nav_shopping_cart" onClick={()=>displayModalHandler(setMenuIsActive)}>
+                    <div onClick={()=> setMenuIsActive(false)} className="nav_items_quantity">{choosedProducts.length || 0}</div>
                     <Shopping_bag />
                 </div>
             </nav>
@@ -49,9 +52,9 @@ const {quantity} = useContext(MyContext);
 
             {/* Hamburger */}
             <div className="hamburger">
-                <button onClick={()=> setIsActive(prev => !prev)} className="btn">
+                <button onClick={()=> setMenuIsActive(prev => !prev)} className="btn">
                     {
-                        isActive ?
+                        menuIsActive ?
                         <Times />
                         :
                         <Hamburger />
@@ -60,7 +63,7 @@ const {quantity} = useContext(MyContext);
             </div>
 
             {/* Overlay */}
-            {isActive && <div className="overlay"></div>}
+            {menuIsActive && <div className="overlay"></div>}
         </div>
     </header>
   )

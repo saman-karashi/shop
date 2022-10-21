@@ -5,6 +5,7 @@
 @import './mixins/mixins';
 @import './functions/functions';
 @import './components/card';
+@import './components/modal';
 @import './layout/navigation';
 
 body{
@@ -51,6 +52,17 @@ z-index: 100;
 top: 71px;
 right: 0;
 display: none;
+position: fixed;
+}
+
+
+.modal_overlay{
+height: 100%;
+background-color: rgba(0, 0, 0, 0.1);
+width: 100%;
+z-index: 100;
+top: 0px;
+right: 0;
 position: fixed;
 }
 

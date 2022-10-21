@@ -4,19 +4,45 @@ import { ShoppingCart } from '../../icons/Icons';
 import Image from 'next/image';
 import {MyContext} from '../../store/Context';
 
-interface Product {
-image:string,
+type Product ={
+id:number,
 title:string,
-price:number
+price:number,
+description:string,
+category:string,
+image:string,
+rating:{count:number,rate:number},
+quantity?:number
 }
 
-const Product:NextPage<Product> = ({image,title,price}) => {
-const context = useContext(MyContext);
+const Product:NextPage<Product> = ({image,title,price,id,category,description,rating}) => {
+const {
+setChoosedProducts,
+choosedProducts
+} = useContext(MyContext);
 
+const shoppingBtnHandler = (arg:Product)=>{
+const present = choosedProducts.some((product)=> product.id === id);
+
+if(!present){
+arg['quantity'] = 1;
+setChoosedProducts((prev:Product[]) => [...prev , arg])
+}else{
+setChoosedProducts((prev:Product[]) =>{
+    prev.map((item:Product)=>{
+        if(item.id === arg.id && item.quantity){
+          item.quantity++
+        }
+    })
+    return [...prev]
+})
+}
+
+}
   return (
     <div className="card">
         <div className="card_image">
-            <Image src={image} alt={title} width="400px" objectFit='contain' height="300px"/>
+            <Image priority={true} src={image} alt={title} width="400px" objectFit='contain' height="300px"/>
         </div>
        <div className="card_content py_2 px_1">
             <div className='card_title'>
@@ -26,7 +52,18 @@ const context = useContext(MyContext);
                 <p className='card_price'>Price:</p>
                 <div className='card_expense_wrapper'>
                     <span className='card_expense'>${price}</span>
-                    <button onClick={context.increaseQuantityHandler} className='card_buy_btn'>
+                    <button onClick={()=>{
+                      shoppingBtnHandler({
+                        image,
+                        price,
+                        description,
+                        id,
+                        rating,
+                        title,
+                        category,
+                        quantity: 0
+                        }) 
+                    }} className='card_buy_btn'>
                         <ShoppingCart color="#fff" />
                     </button>
                 </div>
