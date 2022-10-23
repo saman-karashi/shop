@@ -1,6 +1,5 @@
 import { NextPage } from 'next'
-import React, { ReactElement, ReactNode } from 'react'
-import Loading from '../loading/Loading';
+import React, { ReactElement } from 'react'
 import Navbar from '../navbar/Navbar'
 
 type Props = {

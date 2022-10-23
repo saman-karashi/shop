@@ -14,25 +14,27 @@ quantity:number
 
 type DefaultValues ={
 modalIsActive:boolean,
-displayModalHandler:(arg:any)=> void,
+displayModalHandler:()=> void,
 hideModalHandler:()=> void,
 setChoosedProducts:(arg:any)=> void,
-choosedProducts:Product[]
+choosedProducts:Product[],
+filterItems:string,
+setFilter:(arg:any)=>void
 }
 
 type Props = {
 children:ReactNode
 }
 
-export const MyContext = createContext<DefaultValues>({choosedProducts:[],setChoosedProducts:()=>{},modalIsActive:false,displayModalHandler:()=>{},hideModalHandler:()=>{}});
+export const MyContext = createContext<DefaultValues>({setFilter:()=>{},filterItems:'',choosedProducts:[],setChoosedProducts:()=>{},modalIsActive:false,displayModalHandler:()=>{},hideModalHandler:()=>{}});
 
 const GlobalState:FC<Props> = ({children})=>{
 const [modalIsActive,setModalIsActive] = useState<boolean>(false);
-const [choosedProducts,setChoosedProducts] = useState<Product[]>([])
+const [choosedProducts,setChoosedProducts] = useState<Product[]>([]);
+const [filterItems,setFilter] = useState<string>('');
 
-function displayModalHandler(setMenuIsActive:any){
+function displayModalHandler(){
 setModalIsActive(true)
-setMenuIsActive(false)
 }
 
 function hideModalHandler(){
@@ -40,7 +42,7 @@ setModalIsActive(false)
 }
 
 return (
-    <MyContext.Provider value={{choosedProducts,setChoosedProducts,modalIsActive,displayModalHandler,hideModalHandler}}>{children}</MyContext.Provider>
+    <MyContext.Provider value={{setFilter,filterItems,choosedProducts,setChoosedProducts,modalIsActive,displayModalHandler,hideModalHandler}}>{children}</MyContext.Provider>
 )
 
 }

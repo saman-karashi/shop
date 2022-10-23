@@ -7,6 +7,7 @@
 @import './components/card';
 @import './components/modal';
 @import './layout/navigation';
+@import './components/filters';
 
 body{
 font-family: 'Lato' , sans-serif;
@@ -31,28 +32,8 @@ background-color: transparent;
 border: none;
 }
 
-.show{
-top:70px;
-}
-
-.hidden{
-top: -50%;
-}
-
 .grid{
 @include grid(4,flex-start,space-between);
-}
-
-
-.overlay{
-height: 100%;
-background-color: rgba(0, 0, 0, 0.1);
-width: 100%;
-z-index: 100;
-top: 71px;
-right: 0;
-display: none;
-position: fixed;
 }
 
 
@@ -74,10 +55,6 @@ position: fixed;
 }
 
 @include responsive(md){
-    .overlay{
-    display: block;
-    }
-
     .grid{
     @include grid(2,flex-start,space-between)
     }

@@ -9,6 +9,11 @@
         margin-top: #{$i}rem;
     }
 
+    .my_#{$i}{
+        margin-top: #{$i}rem;
+        margin-bottom: #{$i}rem;
+    }
+
     .px_#{$i}{
         padding-left:#{$i}rem;
         padding-right:#{$i}rem;

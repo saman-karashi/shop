@@ -23,6 +23,11 @@ li {
   margin-top: 1rem;
 }
 
+.my_1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .px_1 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -39,6 +44,11 @@ li {
 
 .mt_2 {
   margin-top: 2rem;
+}
+
+.my_2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .px_2 {
@@ -59,6 +69,11 @@ li {
   margin-top: 3rem;
 }
 
+.my_3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .px_3 {
   padding-left: 3rem;
   padding-right: 3rem;
@@ -75,6 +90,11 @@ li {
 
 .mt_4 {
   margin-top: 4rem;
+}
+
+.my_4 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .px_4 {
@@ -95,6 +115,11 @@ li {
   margin-top: 5rem;
 }
 
+.my_5 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .px_5 {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -110,8 +135,8 @@ li {
   border-radius: 15px;
   border: 1px solid #f7f7f7;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
   margin: 0 auto;
+  width: 300px;
 }
 .card .card_content .card_title .title {
   font-size: 1rem;
@@ -124,11 +149,16 @@ li {
   color: #969696;
   font-weight: 700;
 }
+.card .card_content .card_description .card_price .card_expense {
+  margin-left: 0.3rem;
+  color: #333;
+}
 .card .card_content .card_description .card_expense_wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .card .card_content .card_description .card_expense_wrapper .card_expense {
   font-weight: 700;
@@ -146,10 +176,9 @@ li {
   overflow-y: auto;
   z-index: 1000;
   position: fixed;
-  inset: 25% calc(50% - 15rem);
+  inset: 25% calc(50% - 12rem);
   min-width: 15rem;
   max-width: 100%;
-  margin: 0 auto;
   height: 20rem;
   background-color: #fff;
   border-radius: 10px;
@@ -168,7 +197,9 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   position: relative;
+  flex-wrap: nowrap;
 }
 .modal .modal_body::after {
   position: absolute;
@@ -194,10 +225,12 @@ li {
   }
 }
 .modal .modal_body .card_add {
+  flex-wrap: nowrap !important;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .modal .modal_body .card_add .decrement_btn,
 .modal .modal_body .card_add .increment_btn {
@@ -218,6 +251,7 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .modal .modal_total_expenses .modal_expense .total,
 .modal .modal_total_expenses .modal_expense .total_text {
@@ -235,30 +269,14 @@ li {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-}
-.nav_header .nav_wrapper .hamburger {
-  display: none;
+  flex-wrap: wrap;
 }
 .nav_header .nav_wrapper .nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
-.nav_header .nav_wrapper .nav .nav_ul {
-  margin-right: 1rem;
-  display: inline-flex;
-}
-.nav_header .nav_wrapper .nav .nav_ul li {
-  margin: 0 0.5rem;
-  font-size: 1rem;
-}
-.nav_header .nav_wrapper .nav .nav_ul li a {
-  color: #333;
-  transition: all 250ms ease-in-out;
-}
-.nav_header .nav_wrapper .nav .nav_ul li a:hover {
-  color: #12C3EB;
+  flex-wrap: wrap;
 }
 .nav_header .nav_wrapper .nav .nav_shopping_cart {
   cursor: pointer;
@@ -269,6 +287,7 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   font-size: 0.875rem;
   position: absolute;
   top: -6px;
@@ -290,36 +309,31 @@ li {
   color: #12C3EB;
 }
 
-@media screen and (max-width: 768px) {
-  .nav_header .nav_wrapper {
-    flex-direction: row;
-  }
-  .nav_header .nav_wrapper .nav {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: fixed;
-    right: 0;
-    z-index: 101;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    min-height: 18%;
-    transition: top 250ms ease-in-out;
-  }
-  .nav_header .nav_wrapper .nav .nav_ul {
-    display: block;
-    text-align: center;
-    margin-right: 0;
-  }
-  .nav_header .nav_wrapper .nav .nav_ul li {
-    margin: 1rem 0;
-  }
-  .nav_header .nav_wrapper .hamburger {
-    cursor: pointer;
-    display: block;
-  }
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
+.filters .filter {
+  border-radius: 50px;
+  margin: 0.3rem 0.5rem;
+  border: 2px solid transparent;
+  color: #fafafa;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  font-weight: 700;
+  font-size: 0.875rem;
+  background-color: #333;
+}
+.filters .filter:hover {
+  color: #333;
+  background-color: transparent;
+  border-color: #333;
+}
+
 body {
   font-family: "Lato", sans-serif;
   overflow-x: hidden;
@@ -344,31 +358,13 @@ img {
   border: none;
 }
 
-.show {
-  top: 70px;
-}
-
-.hidden {
-  top: -50%;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  grid-row-gap: 1rem;
+  grid-column-gap: 0.5rem;
   align-items: flex-start;
   justify-content: space-between;
-}
-
-.overlay {
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  width: 100%;
-  z-index: 100;
-  top: 71px;
-  right: 0;
-  display: none;
-  position: fixed;
 }
 
 .modal_overlay {
@@ -385,19 +381,18 @@ img {
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
     align-items: flex-start;
     justify-content: space-between;
   }
 }
 @media screen and (max-width: 768px) {
-  .overlay {
-    display: block;
-  }
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
     align-items: flex-start;
     justify-content: space-between;
   }

@@ -4,6 +4,7 @@ import Products from '../components/products/Products';
 import Modal from '../components/modal/Modal';
 import {useContext} from 'react';
 import {MyContext} from '../store/Context';
+import Filters from '../components/filters/Filters';
 
 type Props = {
  data:{
@@ -33,9 +34,10 @@ const {modalIsActive} = useContext(MyContext);
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Online shop</title>
       </Head>
-      <Products data={data} />
+      <Filters />
+      <Products data={data} /> 
       {
       modalIsActive && 
       <>

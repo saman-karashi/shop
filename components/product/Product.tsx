@@ -49,9 +49,12 @@ setChoosedProducts((prev:Product[]) =>{
                 <h3 className='title'>{title}</h3>
             </div>
             <div className='mt_1 card_description'>
-                <p className='card_price'>Price:</p>
                 <div className='card_expense_wrapper'>
-                    <span className='card_expense'>${price}</span>
+                    <span className='card_price'>
+                    Price:
+                    <span className='ml_1 card_expense'>${price}</span>
+                    </span>
+                    
                     <button onClick={()=>{
                       shoppingBtnHandler({
                         image,

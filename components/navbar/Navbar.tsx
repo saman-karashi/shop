@@ -6,41 +6,21 @@ import { Hamburger , Times } from "../../icons/Icons";
 import { MyContext } from "../../store/Context";
 
 const Navbar:NextPage = () => {
-const [menuIsActive,setMenuIsActive] = useState<boolean>(false);
 const {
 displayModalHandler,
 choosedProducts
 } = useContext(MyContext);
 
+const shoppingCartHandler = ()=>{
+displayModalHandler();
+}
+
   return (
     <header className="nav_header">
         <div className="container nav_wrapper">
-            <nav className={`nav ${menuIsActive ? 'show' : 'hidden'}`}>
-                <ul className="nav_ul">
-                    <li>
-                        <Link href={'/'}>
-                            <a>
-                                Home
-                            </a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href={'/contact'}>
-                            <a>
-                                Contact
-                            </a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href={'/about'}>
-                            <a>
-                                About
-                            </a>
-                        </Link>
-                    </li>
-                </ul>
-                <div className="nav_shopping_cart" onClick={()=>displayModalHandler(setMenuIsActive)}>
-                    <div onClick={()=> setMenuIsActive(false)} className="nav_items_quantity">{choosedProducts.length || 0}</div>
+            <nav className={`nav`}>
+                <div className="nav_shopping_cart" onClick={shoppingCartHandler}>
+                    <div className="nav_items_quantity">{choosedProducts.length || 0}</div>
                     <Shopping_bag />
                 </div>
             </nav>
@@ -49,21 +29,6 @@ choosedProducts
                     <span className="nav_subLogo">E</span>commerce
                 </span>
             </div>
-
-            {/* Hamburger */}
-            <div className="hamburger">
-                <button onClick={()=> setMenuIsActive(prev => !prev)} className="btn">
-                    {
-                        menuIsActive ?
-                        <Times />
-                        :
-                        <Hamburger />
-                    }
-                </button>
-            </div>
-
-            {/* Overlay */}
-            {menuIsActive && <div className="overlay"></div>}
         </div>
     </header>
   )

@@ -3,10 +3,9 @@
     overflow-y: auto;
     z-index: 1000;
     position: fixed;
-    inset:25% calc(50% - 15rem);
+    inset: 25% calc(50% - 12rem);
     min-width: 15rem;
     max-width: 100%;
-    margin: 0 auto;
     height: 20rem;
     background-color:#fff;
     border-radius: 10px;
@@ -24,6 +23,7 @@
         .modal_body{
             @include flex(space-between,center,row);
             position: relative;
+            flex-wrap: nowrap;
     
             &::after{
                 position: absolute;
@@ -55,6 +55,7 @@
             }
     
             .card_add{
+                flex-wrap: nowrap !important;
                 @include flex(center,center,row);
                 .decrement_btn,
                 .increment_btn{
