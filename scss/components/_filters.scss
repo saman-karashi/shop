@@ -1,21 +1,35 @@
 .filters{
-    @include flex(flex-start,center,row);
-        .filter{
-            border-radius: 50px;
-            margin:.3rem .5rem;
-            border: 2px solid transparent;
-            color: colors_handler(white-200);
-            padding: .5rem 1.5rem;
-            cursor: pointer;
-            transition: all transitions_handler(transition-250) ease-in-out;
-            font-weight:font_weights_handler(bold);
-            font-size: font_sizes_handler(sm);
-            background-color:colors_handler(black-800);
-        
-                &:hover{
-                    color: colors_handler(black-800);
-                    background-color: transparent;
-                    border-color: colors_handler(black-800);
-                }
-        }
+    position: relative;
+    height:50px;
+    margin-bottom: 2rem;
+    .filters_wrapper{
+        width: 100%;
+        overflow-x: auto;
+        @include flex(flex-start,center,row);
+        flex-wrap: nowrap;
+        position: absolute;
+        top: 0;
+        left: 0;
+            .filter{
+                white-space: nowrap;
+                border-radius: 50px;
+                margin:.3rem .5rem;
+                border: 2px solid transparent;
+                color: colors_handler(white-200);
+                padding: .5rem 1.5rem;
+                cursor: pointer;
+                transition: all transitions_handler(transition-250) ease-in-out;
+                font-weight:font_weights_handler(bold);
+                font-size: font_sizes_handler(sm);
+                background-color:colors_handler(black-800);
+            
+                    &:hover{
+                        color: colors_handler(black-800);
+                        background-color: transparent;
+                        border-color: colors_handler(black-800);
+                    }
+            }
+    }    
+
+
 }

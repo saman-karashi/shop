@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import {useContext,useState,useEffect} from 'react';
+import {useContext,useState,useEffect,useCallback} from 'react';
 import {Minus , Plus, Times} from '../../icons/Icons';
 import { MyContext } from '../../store/Context';
 
@@ -44,8 +44,9 @@ if(present){
 const increaseBtnHandler = (id:number)=>{
     setChoosedProducts((prev:Product[]) => {
         prev.filter((item:Product)=>{
+            console.log(item.quantity)
                 if(item.id === id && item.quantity !==  undefined){
-                    item.quantity = item.quantity + 1;
+                    item.quantity += 1;
                 }
         })
     

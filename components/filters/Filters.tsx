@@ -15,11 +15,13 @@ setFilter(text);
 
 return (
     <div className='filters my_1 px_1'>
+      <div className="filters_wrapper">
        <div onClick={filtersHandler} className="filter">All</div>
        <div onClick={filtersHandler} className="filter">Electronics</div>
        <div onClick={filtersHandler} className="filter">Jewelery</div>
-       <div onClick={filtersHandler} className="filter">Women's clothing</div>
-       <div onClick={filtersHandler} className="filter">Men's clothing</div>
+       <div onClick={filtersHandler} className="filter">Women&#39;s clothing</div>
+       <div onClick={filtersHandler} className="filter">Men&#39;s clothing</div>
+      </div>
     </div>
   )
 }

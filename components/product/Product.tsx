@@ -1,5 +1,5 @@
 import { NextPage} from 'next';
-import {useContext} from 'react';
+import {useContext,useCallback,useEffect} from 'react';
 import { ShoppingCart } from '../../icons/Icons';
 import Image from 'next/image';
 import {MyContext} from '../../store/Context';
@@ -37,8 +37,9 @@ setChoosedProducts((prev:Product[]) =>{
     return [...prev]
 })
 }
-
 }
+
+
   return (
     <div className="card">
         <div className="card_image">

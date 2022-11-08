@@ -3,7 +3,10 @@
     overflow-y: auto;
     z-index: 1000;
     position: fixed;
-    inset: 25% calc(50% - 12rem);
+    //inset: 25% calc(50% - 12rem);
+    left: calc(50% - 12rem);
+    right: calc(50% - 12rem);
+    top: 25%;
     min-width: 15rem;
     max-width: 100%;
     height: 20rem;
@@ -47,11 +50,6 @@
                     margin-top: .3rem;
                 }
 
-                @include responsive(sm){
-                    .modal_title{
-                        font-size:font_sizes_handler(sm);
-                    }
-                }
             }
     
             .card_add{
@@ -87,5 +85,21 @@
                 }
            } 
         }
-       
-}
+
+
+                    
+        
+        @include responsive(sm){
+            .modal_title{
+                font-size:font_sizes_handler(sm);
+            }
+        }
+
+        @include responsive(xsm){
+            &{
+                right: 0;
+                left: 0;
+            }
+        }
+        
+    }
